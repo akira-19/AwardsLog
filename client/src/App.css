@@ -30,3 +30,209 @@
     transform: rotate(360deg);
   }
 }
+
+/********* menubar ************/
+
+.navbar{
+    color: white;
+    background-color: #212529;
+    width: 100%;
+    height: 56px;
+}
+
+.navbar a{
+    color: white;
+    font-size: 20px;
+    line-height: 56px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 16px 0 16px;
+    padding: 5px 0;
+}
+
+.navbar a:hover{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:visited{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:link{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.title{
+    float: left;
+}
+
+.menu{
+    float: right;
+}
+
+.menu ul{
+    margin-top: 0;
+    height: 56px;
+}
+
+.menu li{
+    display: inline-block;
+    list-style: none;
+    height: 56px;
+}
+
+.menu a{
+    font-size: 16px;
+    line-height: 56px;
+}
+
+/********** toppage ************/
+#toppage{
+    margin: 0px;
+    padding: 0px;
+    height: 800px;
+    width: 100%;
+    background-size: cover;
+}
+
+.titleText{
+    width: 400px;
+    margin: auto;
+    text-align: center;
+    padding-top: 300px;
+    color: white;
+}
+.titleText h2{
+    font-size: 4em;
+}
+.titleText p{
+    font-size: 1.5em;
+}
+
+
+/******** InstituionInput *********/
+
+#instituionInput{
+    width: 100%;
+    margin-top: 30px;
+}
+
+#use{
+    width: 800px;
+    margin: auto;
+}
+
+#instituionInput span{
+    display: inline-block;
+    width: 150px;
+    margin-left: 5px;
+    text-align: right;
+}
+
+.formInput{
+    width: 700px;
+    margin: auto;
+    text-align: left;
+    font-size: 18px;
+    padding-top: 8px;
+
+}
+
+.formInput input{
+    margin-left: 8px;
+    width: 300px;
+    font-size: 16px;
+}
+
+/********** Output **********/
+#output{
+    margin-top: 50px;
+}
+
+#proofLetter{
+    width: 700px;
+    height: 250px;
+    margin: auto;
+    border: 5px double black;
+    font-family: "Times New Roman", Times, serif;
+    text-align: left;
+    padding: 20px;
+    line-height: 20px;
+    background-color: #eee;
+    color: navy;
+}
+#proofLetter span{
+    min-width: 50px;
+    display: inline-block;
+    margin: 0 6px;
+    font-style: italic;
+    font-weight: bold;
+    border-bottom: 1px solid navy;
+}
+
+#proofLetter p:nth-child(1){
+    margin-bottom: 45px;
+}
+#proofLetter p:nth-child(2){
+    margin-bottom: 35px;
+}
+#proofLetter p:nth-child(3){
+    margin-bottom: 25px;
+}
+
+/******** search award ********/
+#searchAward{
+    width: 100%;
+    margin-top: 30px;
+}
+
+#searchForm{
+    width: 800px;
+    margin: auto;
+}
+
+#searchForm div span{
+    display: inline-block;
+    width: 150px;
+    margin-left: 5px;
+    text-align: right;
+}
+
+.searchInput{
+    width: 700px;
+    margin: auto;
+    text-align: left;
+    font-size: 18px;
+    padding-top: 8px;
+    font-size: 18px;
+}
+
+.inputText{
+    margin-left: 8px;
+    width: 300px;
+    font-size: 16px;
+}
+
+/******* registerInstitution *******/
+#registerInstitution{
+    width: 100%;
+    margin-top: 30px;
+}
+
+#registerInstitutionForm{
+    width: 800px;
+    margin: auto;
+}
+
+#registerInstitutionForm div span{
+    display: inline-block;
+    width: 150px;
+    margin-left: 5px;
+    text-align: right;
+}

@@ -17,6 +17,7 @@ contract SimpleStorage {
   mapping (address => string) institution;
 
 
+
   // @ Don't consider the situation where a student has several awards from the same institution and the same student ID
   function getAwardInfo(string memory _studentId, address _institution) public view returns (awardInfo memory) {
       string memory institutionName = institution[_institution];
@@ -26,6 +27,7 @@ contract SimpleStorage {
           }
       }
   }
+
 
   function addAwardInfo(string memory _studentId, string memory _name, string memory _award, string memory _gradDate) public  {
       //require(institution[msg.sender]);
@@ -41,6 +43,10 @@ contract SimpleStorage {
 
   function registerInstitution(string memory _name) public  {
       institution[msg.sender] = _name;
+  }
+
+  function getInstitution()public view returns (string memory) {
+      return institution[msg.sender];
   }
 
 }

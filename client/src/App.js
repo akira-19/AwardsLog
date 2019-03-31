@@ -1,21 +1,158 @@
 import React, { Component } from "react";
 import SimpleStorageContract from "./contracts/SimpleStorage.json";
 import getWeb3 from "./utils/getWeb3";
+import bg from "./background.jpg"
 
 import "./App.css";
 
 
 function InstituionInput(props){
     return (
-            <form>
-                <input type="text" value={props.studentInfo.studentId} onChange={props.changeInfo}/>
+        <div id="instituionInput">
+            <form id="use" onSubmit={props.registerAward}>
+                <div className="formInput">
+                    <span>Student ID:</span>
+                    <input type="text" value={props.studentInfo.studentId　|| ""} name="studentId" onChange={props.changeInfo}/>
+                </div>
+                <div className="formInput">
+                    <span>Student Name:</span>
+                    <input type="text" value={props.studentInfo.studentName || ""} name="studentName" onChange={props.changeInfo}/>
+                </div>
+                <div className="formInput">
+                    <span>Award:</span>
+                    <input type="text" value={props.studentInfo.award || ""} name="award" onChange={props.changeInfo}/>
+                </div>
+                <div className="formInput">
+                    <span>Date:</span>
+                    <input type="date" value={props.studentInfo.graduationDate || ""} name="graduationDate" onChange={props.changeInfo}/>
+                </div>
+                <div className="formInput">
+                    <span></span>
+                    <input type="submit" value="Register" />
+                </div>
             </form>
+        </div>
     );
 }
 
 function InstituionOutput(props){
+    let d = new Date();
+    let year = d.getFullYear();
+    let month = d.getMonth();
+    let day = d.getDate();
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     return(
-        <p>{props.studentInfo.studentId}</p>
+        <div id="output">
+            <div id="proofLetter">
+                <p>{months[month]} {day}, {year}</p>
+                <p>To Whom It May Concern,</p>
+                <p>This letter will verify that
+                    <span> {props.studentInfo.studentName} </span>
+                    <span> (ID: {props.studentInfo.studentId}) </span>
+                   graduated from
+                   <span> {props.institutionName} </span>
+                   with
+                   <span> {props.studentInfo.award} </span>
+                   on
+                   <span> {props.studentInfo.graduationDate} </span>
+                </p>
+                <p>
+                   If you need additional information, please contact us via email or phone.
+                </p>
+
+            </div>
+            <hr/>
+        </div>
+    );
+}
+
+function SearchAward(props){
+    return(
+        <div id="searchAward">
+            <form id="searchForm" onSubmit={props.searchAward}>
+                <div className="searchInput">
+                    <span>Institution ID:</span>
+                    <input
+                        className="inputText"
+                        name="institutionId"
+                        type="text"
+                        value={props.searchInput.institutionId || ""}
+                        onChange={props.updateSearchBox}/>
+                </div>
+                <div className="searchInput">
+                    <span>Student ID:</span>
+                    <input
+                        className="inputText"
+                        type="text"
+                        name="studentId"
+                        value={props.searchInput.studentId || ""} onChange={props.updateSearchBox}
+                        />
+                </div>
+                <div className="searchInput">
+                    <span></span>
+                    <input className="inputText" type="submit" value="Search" />
+                </div>
+            </form>
+            <hr/>
+        </div>
+    );
+}
+
+function SearchResult(props){
+    if (props.studentAward.studentId){
+        let d = new Date();
+        let year = d.getFullYear();
+        let month = d.getMonth();
+        let day = d.getDate();
+        let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        return (
+            <div>
+                <div id="awardProof">
+                    <p>{months[month]} {day}, {year}</p>
+                    <p>To Whom It May Concern,</p>
+                    <p>This letter will verify that
+                        <span> {props.studentAward.studentName} </span>
+                        <span> (ID: {props.studentAward.studentId}) </span>
+                       graduated from
+                       <span> {props.institutionName} </span>
+                       with
+                       <span> {props.studentAward.award} </span>
+                       on
+                       <span> {props.studentAward.graduationDate} </span>
+                    </p>
+                    <p>
+                       If you need additional information, please contact us via email or phone.
+                    </p>
+
+                </div>
+            </div>
+        );
+    }else{
+        return(<div></div>);
+    }
+}
+
+
+function RegisterInstitution(props){
+    return (
+        <div>
+            <div id="registerInstitution">
+                <form id="registerInstitutionForm" onSubmit={props.registerInstitution}>
+                    <div className="searchInput">
+                        <span>Institution Name:</span>
+                        <input className="inputText"
+                            type="text" value={props.institutionName}
+                            onChange={props.updateInstitutionName}
+                            />
+                    </div>
+                    <div className="searchInput">
+                        <span></span>
+                        <input className="inputText" type="submit" value="Register"/>
+                    </div>
+                </form>
+                <hr/>
+            </div>
+        </div>
     );
 }
 
@@ -25,22 +162,45 @@ const studentInfo = {
     studentName: "",
     institutionName: "",
     award: "",
-    GraduationDate: ""
+    graduationDate: ""
 };
+
+const studentAward = {
+    studentId: "",
+    studentName: "",
+    institutionName: "",
+    award: "",
+    graduationDate: ""
+};
+
+const searchInput  = {
+    institutionId: "",
+    studentId: ""
+}
+
+const institutionName = "";
+
+
 
 class App extends Component {
   constructor(props) {
       super(props);
       this.state = {
-          storageValue: 0,
           studentInfo: studentInfo,
+          searchInput: searchInput,
+          studentAward: studentAward,
+          institutionName: institutionName,
           web3: null,
           accounts: null,
           contract: null
       };
       this.changeInfo = this.changeInfo.bind(this);
+      this.registerInstitution = this.registerInstitution.bind(this);
+      this.updateInstitutionName = this.updateInstitutionName.bind(this);
+      this.registerAward = this.registerAward.bind(this);
+      this.searchAward = this.searchAward.bind(this);
+      this.updateSearchBox = this.updateSearchBox.bind(this);
   }
-  // state = { storageValue: 0, web3: null, accounts: null, contract: null };
 
   componentDidMount = async () => {
     try {
@@ -73,23 +233,79 @@ class App extends Component {
   runExample = async () => {
     const { accounts, contract } = this.state;
 
-    // Stores a given value, 5 by default.
-    // await contract.methods.set(5).send({ from: accounts[0] });
-
-    // Get the value from the contract to prove it worked.
-    // const response = await contract.methods.get().call();
-
-    // Update state with the result.
-    // this.setState({ storageValue: response });
+    const userInstitution = await contract.methods.getInstitution().call();
+    this.setState({
+        institutionName: userInstitution
+    })
+    console.log(userInstitution);
   };
 
 
 
   changeInfo(e){
-      this.setState({studentInfo: {
-          studentId: e.target.value
-      }});
+      let property = e.target.name;
+      let studentInfo = Object.assign({}, this.state.studentInfo)
+      studentInfo[property] = e.target.value;
+      this.setState({
+              studentInfo: studentInfo
+      });
   }
+
+  updateSearchBox(e){
+      let property = e.target.name;
+      let searchInput = Object.assign({}, this.state.searchInput)
+      searchInput[property] = e.target.value;
+      this.setState({
+              searchInput: searchInput
+      });
+  }
+
+  updateInstitutionName(e){
+      this.setState({
+          institutionName: e.target.value
+      });
+  }
+
+  registerInstitution = async (e) => {
+      e.preventDefault();
+      const { accounts, contract } = this.state;
+      const institutionName = this.state.institutionName;
+      await contract.methods.registerInstitution(institutionName).send({ from: accounts[0] });
+  }
+
+  registerAward = async (e) => {
+      e.preventDefault();
+      const { accounts, contract } = this.state;
+      const studentId = this.state.studentInfo.studentId;
+      const studentName = this.state.studentInfo.studentName;
+      const award = this.state.studentInfo.award;
+      const graduationDate = this.state.studentInfo.graduationDate;
+
+      await contract.methods.addAwardInfo(studentId, studentName, award, graduationDate).send({ from: accounts[0] });
+  }
+
+  searchAward = async (e) => {
+       e.preventDefault();
+       const { accounts, contract } = this.state;
+       const institutionId = this.state.searchInput.institutionId;
+       const studentId = this.state.searchInput.studentId;
+
+       let awardInfo = await contract.methods.getAwardInfo(studentId, institutionId).call()
+
+       awardInfo = {
+           studentId: awardInfo.studentId,
+           studentName: awardInfo.studentName,
+           institutionName: awardInfo.institutionName,
+           award: awardInfo.award,
+           graduationDate: awardInfo.graduationDate
+       };
+
+       this.setState({
+           studentAward: awardInfo
+       });
+  }
+
+
 
   render() {
     if (!this.state.web3) {
@@ -97,12 +313,47 @@ class App extends Component {
     }
     return (
       <div className="App">
+          <nav className="navbar">
+              <div className="title"><a href="#">10 weeks project</a></div>
+              <div className="menu">
+                  <ul>
+                      <li><a className="" href="#usage">How to use</a></li>
+                      <li><a className="" href="#use">Use the Dapp</a></li>
+                  </ul>
+              </div>
+          </nav>
+          <div id="toppage" style={{backgroundImage:`url(${bg})`}}>
+              <div className="titleText">
+                  <h2>Awards Log</h2>
+                  <p></p>
+              </div>
+          </div>
 
-          <nav>10 weeks project</nav>
-          <div>here is toppage</div>
-          <InstituionInput studentInfo={this.state.studentInfo} changeInfo={this.changeInfo}/>
-          <InstituionOutput studentInfo={this.state.studentInfo}/>
-          <div></div>
+          <SearchAward
+              searchInput={this.state.searchInput}
+              searchAward={this.searchAward}
+              updateSearchBox={this.updateSearchBox}
+          />
+
+          <SearchResult
+              studentAward={this.state.studentAward}
+              institutionName={this.state.institutionName}
+           />
+
+          <InstituionInput
+              studentInfo={this.state.studentInfo} changeInfo={this.changeInfo}
+              registerAward={this.registerAward}
+          />
+
+          <InstituionOutput
+              studentInfo={this.state.studentInfo}
+              institutionName={this.state.institutionName}
+          />
+
+          <RegisterInstitution
+              institutionName={this.state.institutionName} registerInstitution={this.registerInstitution}
+              updateInstitutionName={this.updateInstitutionName}
+              />
       </div>
     );
   }
