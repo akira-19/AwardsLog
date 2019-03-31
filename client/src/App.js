@@ -9,6 +9,7 @@ import "./App.css";
 function InstituionInput(props){
     return (
         <div id="instituionInput">
+            <h2>Register an Award</h2>
             <form id="use" onSubmit={props.registerAward}>
                 <div className="formInput">
                     <span>Student ID:</span>
@@ -28,7 +29,7 @@ function InstituionInput(props){
                 </div>
                 <div className="formInput">
                     <span></span>
-                    <input type="submit" value="Register" />
+                    <input className="inputText" type="submit" value="Register" />
                 </div>
             </form>
         </div>
@@ -69,6 +70,7 @@ function InstituionOutput(props){
 function SearchAward(props){
     return(
         <div id="searchAward">
+            <h2>Find an Award</h2>
             <form id="searchForm" onSubmit={props.searchAward}>
                 <div className="searchInput">
                     <span>Institution ID:</span>
@@ -92,9 +94,7 @@ function SearchAward(props){
                     <span></span>
                     <input className="inputText" type="submit" value="Search" />
                 </div>
-            </form>
-            <hr/>
-        </div>
+            </form>        </div>
     );
 }
 
@@ -106,7 +106,7 @@ function SearchResult(props){
         let day = d.getDate();
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         return (
-            <div>
+            <div id="awardOutput">
                 <div id="awardProof">
                     <p>{months[month]} {day}, {year}</p>
                     <p>To Whom It May Concern,</p>
@@ -125,10 +125,18 @@ function SearchResult(props){
                     </p>
 
                 </div>
+                <hr/>
             </div>
         );
     }else{
-        return(<div></div>);
+        return(
+            <div id="awardOutput">
+                <div id="awardProof">
+                    <h2>The result will be showed here.</h2>
+                </div>
+                <hr/>
+            </div>
+        );
     }
 }
 
@@ -137,6 +145,7 @@ function RegisterInstitution(props){
     return (
         <div>
             <div id="registerInstitution">
+                <h2>Register an Institution</h2>
                 <form id="registerInstitutionForm" onSubmit={props.registerInstitution}>
                     <div className="searchInput">
                         <span>Institution Name:</span>
@@ -150,7 +159,22 @@ function RegisterInstitution(props){
                         <input className="inputText" type="submit" value="Register"/>
                     </div>
                 </form>
-                <hr/>
+            </div>
+        </div>
+    );
+}
+
+function Usage(){
+    return (
+        <div id="usage">
+            <div className="usageList">
+                <h3>1. Register an Award</h3>
+                <p>Register an award, and anyone can find the information by the student number and the institution address.</p>
+                <h3>2. Find an Award</h3>
+                <p>You can find authorized students&#39; information by a student number and an institution address.</p>
+                <h3>3. Register as an Institution</h3>
+                <p>It should be allowed to register institutions by only the contract owner (or in another authorized way), but anyone can register as an institution here. Your address will be the institution ID.</p>
+                <h3>* Use Ropsten network</h3>
             </div>
         </div>
     );
@@ -325,7 +349,7 @@ class App extends Component {
           <div id="toppage" style={{backgroundImage:`url(${bg})`}}>
               <div className="titleText">
                   <h2>Awards Log</h2>
-                  <p></p>
+                  <p>Get your authorized award information</p>
               </div>
           </div>
 
@@ -354,6 +378,8 @@ class App extends Component {
               institutionName={this.state.institutionName} registerInstitution={this.registerInstitution}
               updateInstitutionName={this.updateInstitutionName}
               />
+
+          <Usage/>
       </div>
     );
   }

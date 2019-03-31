@@ -105,11 +105,13 @@
     width: 400px;
     margin: auto;
     text-align: center;
-    padding-top: 300px;
+    padding-top: 250px;
     color: white;
 }
 .titleText h2{
     font-size: 4em;
+    margin-bottom: -15px;
+    font-weight: 500;
 }
 .titleText p{
     font-size: 1.5em;
@@ -121,6 +123,10 @@
 #instituionInput{
     width: 100%;
     margin-top: 30px;
+}
+#instituionInput h2{
+    width: 750px;
+    font-size: 36px;
 }
 
 #use{
@@ -159,6 +165,7 @@
     width: 700px;
     height: 250px;
     margin: auto;
+    margin-bottom: 40px;
     border: 5px double black;
     font-family: "Times New Roman", Times, serif;
     text-align: left;
@@ -191,6 +198,10 @@
     width: 100%;
     margin-top: 30px;
 }
+#searchAward h2{
+    width: 750px;
+    font-size: 36px;
+}
 
 #searchForm{
     width: 800px;
@@ -219,15 +230,43 @@
     font-size: 16px;
 }
 
+input[type="submit"]{
+    margin-left: 8px;
+    width: 300px;
+    font-size: 16px;
+
+    position: relative;
+   display: inline-block;
+   padding: 0.25em 0.5em;
+   text-decoration: none;
+   color: #FFF;
+   background: rgb(79, 182, 124);/*button color*/
+   border-bottom: solid 2px rgb(79, 182, 124);/*daker color*/
+   border-radius: 4px;
+   box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+   font-weight: bold;
+}
+
+input[type="submit"]:active {
+    border-bottom: solid 2px rgb(79, 182, 124);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
 /******* registerInstitution *******/
 #registerInstitution{
     width: 100%;
     margin-top: 30px;
 }
 
+#registerInstitution h2{
+    width: 750px;
+    font-size: 36px;
+}
+
 #registerInstitutionForm{
     width: 800px;
     margin: auto;
+    margin-bottom: 35px;
 }
 
 #registerInstitutionForm div span{
@@ -235,4 +274,62 @@
     width: 150px;
     margin-left: 5px;
     text-align: right;
+}
+
+
+/********** Output **********/
+#awardOutput{
+    margin-top: 30px;
+}
+
+#awardProof{
+    width: 700px;
+    height: 250px;
+    margin: auto;
+    margin-bottom: 45px;
+    border: 5px double black;
+    font-family: "Times New Roman", Times, serif;
+    text-align: left;
+    padding: 20px;
+    line-height: 20px;
+    background-color: #eee;
+    color: navy;
+}
+#awardProof span{
+    min-width: 50px;
+    display: inline-block;
+    margin: 0 6px;
+    font-style: italic;
+    font-weight: bold;
+    border-bottom: 1px solid navy;
+}
+
+#awardProof p:nth-child(1){
+    margin-bottom: 45px;
+}
+#awardProof p:nth-child(2){
+    margin-bottom: 35px;
+}
+#awardProof p:nth-child(3){
+    margin-bottom: 25px;
+}
+
+
+
+/* usage */
+#usage{
+    width: 100%;
+    background: rgb(220, 220, 220);
+    margin-top: 35px;
+}
+.usageList{
+    text-align: left;
+    width: 700px;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 25px;
+}
+.usageList h3{
+    margin-bottom: -8px;
+    margin-top: 18px;
 }
