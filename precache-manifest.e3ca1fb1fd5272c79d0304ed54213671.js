@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "0faa6592e5a087c9fa85",
-    "url": "/AwardsLog/static/css/main.f4ac54de.chunk.css"
+    "revision": "5bda0c56b0feffef5a5e",
+    "url": "/AwardsLog/static/css/main.972f1d73.chunk.css"
   },
   {
-    "revision": "0faa6592e5a087c9fa85",
-    "url": "/AwardsLog/static/js/main.0faa6592.chunk.js"
+    "revision": "5bda0c56b0feffef5a5e",
+    "url": "/AwardsLog/static/js/main.5bda0c56.chunk.js"
   },
   {
     "revision": "fbd44bc81aa889813aa0",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/AwardsLog/static/media/background.af5c8aad.jpg"
   },
   {
-    "revision": "ec02c65811a3b3f17f6918cb9e5292d2",
+    "revision": "5351b68f0c435a43b644cd64ba34763f",
     "url": "/AwardsLog/index.html"
   }
 ];

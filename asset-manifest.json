@@ -1,14 +1,14 @@
 {
-  "main.css": "/AwardsLog/static/css/main.f4ac54de.chunk.css",
-  "main.js": "/AwardsLog/static/js/main.0faa6592.chunk.js",
-  "main.js.map": "/AwardsLog/static/js/main.0faa6592.chunk.js.map",
+  "main.css": "/AwardsLog/static/css/main.972f1d73.chunk.css",
+  "main.js": "/AwardsLog/static/js/main.5bda0c56.chunk.js",
+  "main.js.map": "/AwardsLog/static/js/main.5bda0c56.chunk.js.map",
   "static/js/1.fbd44bc8.chunk.js": "/AwardsLog/static/js/1.fbd44bc8.chunk.js",
   "static/js/1.fbd44bc8.chunk.js.map": "/AwardsLog/static/js/1.fbd44bc8.chunk.js.map",
   "runtime~main.js": "/AwardsLog/static/js/runtime~main.2b0b936e.js",
   "runtime~main.js.map": "/AwardsLog/static/js/runtime~main.2b0b936e.js.map",
   "static/media/background.jpg": "/AwardsLog/static/media/background.af5c8aad.jpg",
-  "static/css/main.f4ac54de.chunk.css.map": "/AwardsLog/static/css/main.f4ac54de.chunk.css.map",
+  "static/css/main.972f1d73.chunk.css.map": "/AwardsLog/static/css/main.972f1d73.chunk.css.map",
   "index.html": "/AwardsLog/index.html",
-  "precache-manifest.25b6a15511c5f2345be7075c18979451.js": "/AwardsLog/precache-manifest.25b6a15511c5f2345be7075c18979451.js",
+  "precache-manifest.e3ca1fb1fd5272c79d0304ed54213671.js": "/AwardsLog/precache-manifest.e3ca1fb1fd5272c79d0304ed54213671.js",
   "service-worker.js": "/AwardsLog/service-worker.js"
 }
